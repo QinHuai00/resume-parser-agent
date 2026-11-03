@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "resume-parser-agent"
+version = "0.1.0"
+description = "把 PDF/Word/TXT 简历解析成结构化 JSON 的抽取 Agent：Pydantic 契约 + 校验回灌修复 + 字段级证据溯源 + 批量并发 + 评测集"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "QinHuai00" }]
+dependencies = [
+    "pydantic>=2.6",
+]
+
+[project.optional-dependencies]
+service = ["fastapi>=0.110", "uvicorn>=0.29", "python-multipart>=0.0.9", "httpx>=0.27"]
+documents = ["python-docx>=1.1", "pypdf>=4.0", "openpyxl>=3.1"]
+dev = [
+    "pytest>=8.0",
+    "fastapi>=0.110",
+    "httpx>=0.27",
+    "python-multipart>=0.0.9",
+    "python-docx>=1.1",
+    "pypdf>=4.0",
+    "openpyxl>=3.1",
+]
+
+[project.scripts]
+resume-agent = "resume_agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+pythonpath = ["src"]
