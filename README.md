@@ -1,5 +1,9 @@
 # resume-parser-agent
 
+[![CI](https://github.com/QinHuai00/resume-parser-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/QinHuai00/resume-parser-agent/actions/workflows/ci.yml)
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 把 PDF / Word / TXT 简历解析成结构化 JSON 的抽取 Agent：
 **Pydantic 契约约束输出 → 校验失败回灌修复 → 字段级证据溯源 → 批量并发 → 评测集回归**。
 
